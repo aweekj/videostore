@@ -1,3 +1,5 @@
+package videostore;
+
 class Rental {
     private Movie _movie;
     private int _daysRented;
@@ -13,5 +15,13 @@ class Rental {
 
     public Movie getMovie() {
         return _movie;
+    }
+
+    double getCharge() {
+        return _movie.getCharge(_daysRented);
+    }
+
+    int getFrequentRenterPoints() {
+        return _movie.getFrequentRenterPoints(_daysRented);
     }
 }
