@@ -6,9 +6,8 @@ class Rental:
 
     @property
     def movie(self):
-        return self.movie
+        return self._movie
 
     @property
     def days_rented(self):
         return self._days_rented
-

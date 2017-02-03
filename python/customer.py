@@ -1,4 +1,5 @@
 from movie import Movie
+from rental import Rental
 
 
 class Customer:
@@ -41,5 +42,17 @@ class Customer:
             result += '\t' + rental.movie.title + '\t' + str(this_amount) + '\n'
             total_amount += this_amount
 
-        result += 'You owed ' + str(total_amount) + '\n' + 'You earned ' + str(frequent_renter_points) + 'points\n'
+        result += 'You owed ' + str(total_amount) + '\n' + 'You earned ' + str(frequent_renter_points) + ' points\n'
         return result
+
+if __name__ == '__main__':
+    customer = Customer("Jamie")
+    movies = [Movie("Interstella", Movie.REGULAR),
+              Movie("Arrival", Movie.NEW_RELEASE),
+              Movie("Moana", Movie.CHILDREN),
+              Movie("LaLaLand", Movie.NEW_RELEASE)]
+
+    for i in range(4):
+        customer.add_rental(Rental(movies[i], i+3))
+
+    print(customer.statement())
